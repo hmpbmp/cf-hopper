@@ -1,1 +1,1 @@
-import React from 'react';
+export function StepMovements() { return null; }
