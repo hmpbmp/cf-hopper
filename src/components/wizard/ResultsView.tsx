@@ -1,1 +1,1 @@
-import React from 'react';
+export function ResultsView() { return null; }
