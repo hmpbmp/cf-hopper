@@ -3,3 +3,5 @@ export function estimateWorkoutDurationSeconds() {}
 export function formatDuration() {}
 export function workoutFitsTimeCap() {}
 export function pickNiceReps() {}
+export function pickNiceDistance() {}
+export function generateSharedReps() {}
