@@ -5,3 +5,4 @@ export function workoutFitsTimeCap() {}
 export function pickNiceReps() {}
 export function pickNiceDistance() {}
 export function generateSharedReps() {}
+export function generateDescendingScheme() {}
