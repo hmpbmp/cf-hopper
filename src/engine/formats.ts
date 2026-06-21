@@ -6,3 +6,4 @@ export function generateChipper() {}
 export function generateLadder() {}
 export function generateClassic() {}
 export function generateWithTimeCapValidation() {}
+export function limitBarbellLoadVariety() {}
