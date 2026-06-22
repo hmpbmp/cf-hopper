@@ -1,1 +1,2 @@
 // server
+export function apiRoutes() {}
