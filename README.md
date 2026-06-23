@@ -26,22 +26,76 @@ In CrossFit, the Hopper is a model for randomizing workouts — write movements,
 | Backend | Node.js + Express 5 + TypeScript |
 | Database | SQLite (better-sqlite3) |
 
-## Getting Started
+## Prerequisites
+
+- Node.js 18+ (recommended: 20 LTS)
+- npm 9+ (comes with Node.js)
+
+## How to Run
+
+### Development (Full Stack)
 
 ```bash
-# Install dependencies
+# 1. Install frontend dependencies
 npm install
+
+# 2. Install backend dependencies
 cd server && npm install && cd ..
 
-# Seed database
+# 3. Seed the database with movements and presets
 npm run seed
 
-# Start dev servers (frontend + backend)
+# 4. Start both frontend and backend
 npm run dev
 ```
 
-Frontend: `http://localhost:5173`  
-Backend: `http://localhost:3001`
+| Service | URL | Description |
+|---------|-----|-------------|
+| Frontend | `http://localhost:5173` | React app with hot reload |
+| Backend | `http://localhost:3001` | Express API + SQLite |
+
+### Development (Individual Services)
+
+```bash
+# Frontend only
+npm run dev:client
+
+# Backend only
+npm run dev:server
+```
+
+### Production Build
+
+```bash
+npm run build          # Build frontend for production
+npm run start          # Serve built frontend + API from server
+```
+
+The server will serve the static frontend files from `dist/` and handle API routes.
+
+### First Run
+
+On first run, the database is seeded with:
+- **86 CrossFit movements** across weightlifting, gymnastics, monostructural, and strongman
+- **Built-in presets** for common training goals (strength, conditioning, skill work)
+
+The database is a SQLite file at `server/data/hopper.db`. It persists between restarts.
+
+### Reset Database
+
+```bash
+rm server/data/hopper.db
+npm run seed
+```
+
+### Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Port 5173 in use | Kill other Vite processes or change `vite.config.ts` |
+| Port 3001 in use | Set `PORT=3002` environment variable |
+| `better-sqlite3` build errors | Run `npm rebuild` in the `server/` directory |
+| Database locked | Delete `server/data/hopper.db-shm` and `server/data/hopper.db-wal` |
 
 ## Scripts
 
